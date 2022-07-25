@@ -8,14 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $guarded =['id'];
 
-    protected $with=['cat','user'];
-    
-    public function cat(){
-       return  $this->belongsTo(Cat::class);
+    protected $fillable=["title"];
+    public function authors(){
+        return $this->belongsToMany(User::class);
     }
-    public function user(){
-        return  $this->belongsTo(User::class);
-     }
+
+    public function website(){
+        return $this->belongsTo(WebSite::class);
+    }
 }

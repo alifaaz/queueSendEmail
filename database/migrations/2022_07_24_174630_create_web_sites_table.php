@@ -15,6 +15,7 @@ class CreateWebSitesTable extends Migration
     {
         Schema::create('web_sites', function (Blueprint $table) {
             $table->id();
+            $table->string("title");
             $table->timestamps();
         });
     }

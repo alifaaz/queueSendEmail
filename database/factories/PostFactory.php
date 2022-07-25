@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Cat;
 use App\Models\User;
+use App\Models\WebSite;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostFactory extends Factory
@@ -16,14 +16,10 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-                'title'=>$this->faker->sentence,
-                'body'=> "<p>".$this->faker->paragraph."</p>",
-                'exerpt'=>$this->faker->sentence,
-                'published_at'=>$this->faker->date("y-m-d H:i:s"),
-                "user_id"=>User::factory(),
-                'Cat_id'=>  Cat::factory(),
-                
-            ];
-        
+            //
+            "title" => $this->faker->sentence,
+            "user_id"=> User::class,
+            "web_site_id"=>  WebSite::class
+        ];
     }
 }

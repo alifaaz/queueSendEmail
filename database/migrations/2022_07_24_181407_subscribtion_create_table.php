@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCatsTable extends Migration
+class SubscribtionCreateTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateCatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cats', function (Blueprint $table) {
+        //
+        Schema::create('subscribtions', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->string("slug");
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('web_site_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +29,7 @@ class CreateCatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cats');
+        //
+        Schema::dropIfExists('subscribtions');
     }
 }
